@@ -1,9 +1,8 @@
-// import React from 'react';
+import React from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import style from './Header.style.css';
 import { container } from '../GlobalStyled.styled';
-
-// import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 export default function AppBar() {
   // const auth = useSelector(state => state.auth);
@@ -16,17 +15,23 @@ export default function AppBar() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link>Home</Nav.Link>
-              <Nav.Link>Contacts</Nav.Link>
+              <Nav.Link>
+                <NavLink to="/">Home</NavLink>
+              </Nav.Link>
+              <Nav.Link>
+                <NavLink to="/contacts">Contacts</NavLink>
+              </Nav.Link>
             </Nav>
             <Nav className="button">
               <Button variant="primary" className="me-2">
-              Registration
+                <Nav.Link>Registration</Nav.Link>
               </Button>
               <Button variant="primary" className="me-2">
-              Login
+                <Nav.Link>Login</Nav.Link>
               </Button>
-              <Button variant="primary">Logout</Button>
+              <Button variant="primary">
+                <Nav.Link>Logout</Nav.Link>
+              </Button>
             </Nav>
           </Navbar.Collapse>
         </div>
