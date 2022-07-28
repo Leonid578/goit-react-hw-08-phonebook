@@ -3,7 +3,7 @@ import { Form } from '../Form/Form';
 import Title from '../Title/Title';
 import ContactList from '../contactList/ContactList';
 import NotContacts from '../NotContacts/NotContacts';
-import { useGetAllContactsQuery } from '../../server/fetchContacts';
+import { useGetAllContactsQuery } from '../../server/contacts.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ContactsPage = () =>{
