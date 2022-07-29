@@ -1,6 +1,6 @@
 import { GlobalStyled } from './GlobalStyled.styled';
 import AppBar from './AppBar/Layout';
-import { Router, Route } from 'react-router-dom'; // работа с маршрутизацией
+import { Routes, Route } from 'react-router-dom'; // работа с маршрутизацией
 
 import { Navigate } from 'react-router-dom';
 import Home from './Home/Home';
@@ -16,7 +16,7 @@ const App = () => {
   return (
     <>
       <GlobalStyled />
-      <Router>
+      <Routes>
         <Route path="/" element={<AppBar />}>
           <Route index element={<Home />} />
           <Route
@@ -45,7 +45,7 @@ const App = () => {
           />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
-      </Router>
+      </Routes>
     </>
   );
 };

@@ -1,4 +1,22 @@
 .button{
     margin-left: auto;
+    color: #fff;
+    text-decoration: none;
+
+  
+}
+  .button:hover,
+  .button.focus{
+        color: #fff;
+    }
+
+.link{
+    text-decoration: none;
+}
+
+.headerFixed{
+    position: fixed;  
+    top: 0;  
+    z-index: 100;
 }
 

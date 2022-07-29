@@ -4,7 +4,7 @@ import style from './Form.module.css';
 import propTypes from 'prop-types';
 import { Sabmit, Label } from './Form.style';
 
-import { useAddContactMutation } from 'server/сontacts';
+import { useAddContactMutation } from '../../server/contacts';
 
 export const Form = () => {
   const [name, setName] = useState('');

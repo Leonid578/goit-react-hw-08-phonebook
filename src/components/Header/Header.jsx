@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import style from './Header.style.css';
-import { container } from '../GlobalStyled.styled';
+import { Container } from '../GlobalStyled.styled';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -10,27 +10,34 @@ const Header = () => {
 
   return (
     <>
-      <Navbar collectOnselect="true" expand="lg" bg="dark" variant="dark">
-        <div className="container">
+      <Navbar collectonselect="true" expand="lg" bg="dark" variant="dark">
+        <div className={Container}>
           <Navbar.Brand>Phonebook</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link>
-                <NavLink to="/">Home</NavLink>
-              </Nav.Link>
-              <Nav.Link>
-                <NavLink to="/contacts">Contacts</NavLink>
-              </Nav.Link>
+              <NavLink to="/" className="link">
+                Home
+              </NavLink>
+
+              {auth !== '' && (
+                <NavLink to="/contacts" className="link">
+                  Contacts
+                </NavLink>
+              )}
             </Nav>
             <Nav className="button">
               {auth === '' ? (
                 <>
                   <Button variant="primary" className="me-2">
-                    <Nav.Link><NavLink to="/register">Registration</NavLink></Nav.Link>
+                    <NavLink to="/register" className="button">
+                      Registration
+                    </NavLink>
                   </Button>
                   <Button variant="primary" className="me-2">
-                    <Nav.Link> <NavLink to="/login">Login</NavLink></Nav.Link>
+                    <NavLink to="/login" className="button">
+                      Login
+                    </NavLink>
                   </Button>
                 </>
               ) : (

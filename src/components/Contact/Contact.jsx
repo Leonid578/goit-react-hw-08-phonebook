@@ -2,7 +2,7 @@ import style from './Contact.module.css';
 import propTypes from 'prop-types';
 import { FiX } from 'react-icons/fi';
 import NotContacts from '../NotContacts/NotContacts'
-import { useDeletedContactMutation } from 'server/сontacts';
+import { useDeletedContactMutation } from '../../server/contacts';
 
 const Contact = ({ elem }) => {
   const [deleted, { isLoading: isDeleted }] = useDeletedContactMutation();

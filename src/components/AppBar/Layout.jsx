@@ -1,22 +1,23 @@
 import Header from '../Header/Header';
 import Footer  from '../Footer/Footer';
-import { Main } from './Layout.styled';
-import { Conteiner } from 'components/Conteiner/Conteiner.styled';
+// import { Container } from '../GlobalStyled.styled';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
+import style from './Layout.style.css'
 
 const Layout = () => {
   return (
     <>
       <Header />
 
-      <Main>
-        <Conteiner>
+      <Card.Body className="d-flex flex-column min-vh-100">
+        <div className={style.containerBody}>
           <Suspense fallback={<h1>Loading...</h1>}>
             <Outlet />
           </Suspense>
-        </Conteiner>
-      </Main>
+        </div>
+      </Card.Body>
 
       <Footer />
     </>
