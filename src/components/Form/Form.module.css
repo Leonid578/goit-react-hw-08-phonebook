@@ -27,8 +27,9 @@
   margin-top: 10px;
   box-shadow: 1px 1px 7px rgb(160, 160, 160);
   border-radius: 8px;
-  /* align-items: center;
-  text-align: center; */
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   margin-bottom: 15px;
 }
 
@@ -46,12 +47,20 @@
 }
 
 .button{
-  width: 100px;
-  height:30px;
+  width: 110px;
+  height:40px;
   background-color: rgb(196, 252, 123);
   margin-left: auto;
   margin-right: auto;
-  /* text-align: center;
-  align-items: center; */
+  display: block;
+  margin-top: 40px;
 }
 
+.button:hover{
+  background-color: rgb(184, 236, 116);
+}
+
+.navigation{
+  margin-top: 15px;
+  margin-left: 16px;
+}

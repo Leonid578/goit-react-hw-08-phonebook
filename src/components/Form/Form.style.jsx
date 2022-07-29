@@ -13,3 +13,12 @@ export const Sabmit = styled.button`
 export const Label = styled.label`
   margin-top: 10px;
 `;
+
+export const FormPerson = styled.form`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 600px;
+`;
+

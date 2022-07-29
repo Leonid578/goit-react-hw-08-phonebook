@@ -1,53 +1,87 @@
 import React from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import style from './Header.style.css';
-import { Container } from '../GlobalStyled.styled';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { Container } from '../GlobalStyled.styled';
+import { useUnLoginUserMutation } from 'server/contacts';
+import { newToken } from 'redux/sliceToken';
+import { isAuth } from 'redux/sliceAuth';
 
 const Header = () => {
   const auth = useSelector(state => state.auth);
 
+  const dispatch = useDispatch();
+  const [unloginUser] = useUnLoginUserMutation();
+
   return (
     <>
       <Navbar collectonselect="true" expand="lg" bg="dark" variant="dark">
-        <div className={Container}>
+        <Container>
+
+
           <Navbar.Brand>Phonebook</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto">
-              <NavLink to="/" className="link">
-                Home
-              </NavLink>
 
-              {auth !== '' && (
-                <NavLink to="/contacts" className="link">
-                  Contacts
+            <Nav className="mr-auto">
+
+              <Nav.Link>
+                <NavLink to="/" className="link">
+                  Home
                 </NavLink>
+              </Nav.Link>
+
+              {auth !== '' ? (
+                <NavLink to="/contacts" className="link">
+                  <Nav.Link>Contacts</Nav.Link>
+                </NavLink>
+              ) : (
+                <div></div>
               )}
+
             </Nav>
+
             <Nav className="button">
               {auth === '' ? (
                 <>
-                  <Button variant="primary" className="me-2">
-                    <NavLink to="/register" className="button">
+                  <NavLink to="/register" className="button">
+
+                    <Button variant="primary" className="me-2">
                       Registration
-                    </NavLink>
-                  </Button>
-                  <Button variant="primary" className="me-2">
-                    <NavLink to="/login" className="button">
+                    </Button>
+
+                  </NavLink>
+                  <NavLink to="/login" className="button">
+
+                    <Button variant="primary" className="me-2">
                       Login
-                    </NavLink>
-                  </Button>
+                    </Button>
+
+                  </NavLink>
                 </>
               ) : (
-                <Button variant="primary">
-                  <Nav.Link>Logout</Nav.Link>
-                </Button>
+                <>
+                {auth ?? <div>{auth}</div>}
+                <Nav.Link>
+                  
+                  <Button className={style.button} variant="primary" onClick={() => {
+          unloginUser();
+          dispatch(newToken(''));
+          dispatch(isAuth(''));
+        }}>
+                    Logout
+                  </Button>
+
+                </Nav.Link>
+                </>
+
               )}
             </Nav>
+
+
           </Navbar.Collapse>
-        </div>
+        </Container>
       </Navbar>
     </>
   );
