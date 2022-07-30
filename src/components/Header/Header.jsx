@@ -18,14 +18,10 @@ const Header = () => {
     <>
       <Navbar collectonselect="true" expand="lg" bg="dark" variant="dark">
         <Container>
-
-
           <Navbar.Brand>Phonebook</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-
             <Nav className="mr-auto">
-
               <Nav.Link>
                 <NavLink to="/" className="link">
                   Home
@@ -33,53 +29,49 @@ const Header = () => {
               </Nav.Link>
 
               {auth !== '' ? (
+              <Nav.Link>
                 <NavLink to="/contacts" className="link">
-                  <Nav.Link>Contacts</Nav.Link>
+                  Contacts
                 </NavLink>
+              </Nav.Link>
               ) : (
                 <div></div>
               )}
-
             </Nav>
 
             <Nav className="button">
               {auth === '' ? (
                 <>
                   <NavLink to="/register" className="button">
-
                     <Button variant="primary" className="me-2">
                       Registration
                     </Button>
-
                   </NavLink>
                   <NavLink to="/login" className="button">
-
                     <Button variant="primary" className="me-2">
                       Login
                     </Button>
-
                   </NavLink>
                 </>
               ) : (
                 <>
-                {auth ?? <div>{auth}</div>}
-                <Nav.Link>
-                  
-                  <Button className={style.button} variant="primary" onClick={() => {
-          unloginUser();
-          dispatch(newToken(''));
-          dispatch(isAuth(''));
-        }}>
-                    Logout
-                  </Button>
-
-                </Nav.Link>
+                  {auth ?? <div>{auth}</div>}
+                  <Nav.Link>
+                    <Button
+                        className={style.button}
+                        variant="primary"
+                        onClick={() => {
+                        unloginUser();
+                        dispatch(newToken(''));
+                        dispatch(isAuth(''));
+                      }}
+                    >
+                      Logout
+                    </Button>
+                  </Nav.Link>
                 </>
-
               )}
             </Nav>
-
-
           </Navbar.Collapse>
         </Container>
       </Navbar>
