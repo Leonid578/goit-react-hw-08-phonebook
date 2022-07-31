@@ -18,3 +18,11 @@
     z-index: 100;
 }
 
+.height{
+    max-height: 56px;
+}
+
+.heightLogo{
+    vertical-align:middle;
+    margin-bottom: 20px;
+}

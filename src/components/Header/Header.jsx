@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <>
-      <Navbar collectonselect="true" expand="lg" bg="dark" variant="dark">
+      <Navbar collectonselect="true" expand="lg" bg="dark" variant="dark" className='height'>
         <Container>
           <Navbar.Brand>Phonebook</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
