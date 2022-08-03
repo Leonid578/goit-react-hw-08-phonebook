@@ -18,7 +18,7 @@ const Header = () => {
     <>
       <Navbar collectonselect="true" expand="lg" bg="dark" variant="dark" className='height'>
         <Container>
-          <Navbar.Brand>Phonebook</Navbar.Brand>
+          <Navbar.Brand className="auth" >Phonebook</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
@@ -55,8 +55,8 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                  {auth ?? <div>{auth}</div>}
-                  <Nav.Link>
+                  {auth && <div className="auth"> Hi! {auth} </div>}
+                  <Nav.Link >
                     <Button
                         className={style.button}
                         variant="primary"

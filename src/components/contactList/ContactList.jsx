@@ -3,6 +3,7 @@ import Filter from '../Filter/Filter';
 import Contact from '../Contact/Contact';
 import { useSelector } from 'react-redux';
 
+
 const ContactList = ({ contacts }) => {
   const filter = useSelector(state => state.filter);
 

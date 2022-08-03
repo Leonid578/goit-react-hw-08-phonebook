@@ -5,14 +5,25 @@ import Grid from '@mui/material/Grid';
 import propTypes from 'prop-types';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+// import { useSelector } from 'react-redux';
 
 import { useAddContactMutation } from 'server/contacts';
 import { toast } from 'react-toastify';
 
-export const Form = () => {
+export const Form = ({ contacts }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [updatePost, { isError }] = useAddContactMutation();
+
+  // const filter = useSelector(state => state.filter);
+  // const findeByName = () => {
+  //   return contacts.filter(
+  //     elem =>
+  //       elem.name.slice(0, filter.length).toLowerCase() === filter.toLowerCase()
+  //   );
+  // };
+
+  // const nameContacts = findeByName();
 
   //генерируем необходимые ключи
   const {idName,idTel}  = nanoid();
@@ -20,7 +31,7 @@ export const Form = () => {
   // универсальный метод для инпутов
   const onCangeInpute = event => {
     const { name, value } = event.currentTarget;
-    if (name === 'name') {
+    if (name === 'name')  {
       setName(value);
     } else if (name === 'number') {
       setNumber(value);

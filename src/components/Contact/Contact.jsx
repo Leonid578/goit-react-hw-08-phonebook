@@ -13,7 +13,7 @@ const Contact = ({ elem }) => {
       <NotContacts text={'Wite we deleting'} />
     ) : (
       <li className={style.li}>
-        {elem.name}: {elem.phone}
+        {elem.name}: {elem.number}
         <button onClick={() => deleted(elem.id)}>
           <FiX className={style.svgFix} />
         </button>

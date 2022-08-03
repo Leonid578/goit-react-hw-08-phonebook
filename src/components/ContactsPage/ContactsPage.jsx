@@ -13,7 +13,7 @@ const ContactsPage = () => {
     <>
       <TellContainer>
         <Title text={'Phonebook'} />
-        <Form />
+        <Form contacts={listContacts}/>
         <Title text={'Contacts'} />
         {error ? (
           <NotContacts text={`Data contacts ${error.data}`} />

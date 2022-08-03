@@ -1,6 +1,5 @@
 import Header from '../Header/Header';
 import Footer  from '../Footer/Footer';
-// import { Container } from '../GlobalStyled.styled';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
